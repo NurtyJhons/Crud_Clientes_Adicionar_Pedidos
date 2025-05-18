@@ -1,0 +1,23 @@
+{% extends 'clientes/base.html' %}
+{% block title %}Painel do Cliente{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if cliente.imagem_perfil %}
+    <img src="{{ cliente.imagem_perfil.url }}" alt="Imagem de Perfil" width="150">
+    {% else %}
+    <p>Sem imagem de perfil.</p>
+    {% endif %}
+
+    <h2>Bem-vindo, {{ cliente.nome }}!</h2>
+    <p><strong>Email:</strong> {{ cliente.email }}</p>
+    <p><strong>Telefone:</strong> {{ cliente.telefone }}</p>
+    <p><strong>Data de cadastro:</strong> {{ cliente.criado_em }}</p>
+
+    <div class="buttons">
+        <a href="{% url 'editar_cliente' %}" class="btn">Editar Perfil</a>
+        <a href="{% url 'trocar_senha' %}" class="btn">Trocar Senha</a>
+        <a href="{% url 'excluir_conta' %}" class="btn logout">Excluir Conta</a>
+    </div>
+</div>
+{% endblock %}

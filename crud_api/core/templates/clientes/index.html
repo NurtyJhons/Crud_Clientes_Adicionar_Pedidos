@@ -1,0 +1,13 @@
+{% extends 'clientes/base.html' %}
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Bem-vindo ao Sistema de Clientes</h1>
+    <p>Gerencie seus dados de forma segura e prática.</p>
+    <div class="hero-buttons">
+        <a href="{% url 'login_cliente' %}" class="btn">Entrar</a>
+        <a href="{% url 'registro_cliente' %}" class="btn">Registrar-se</a>
+    </div>
+</div>
+{% endblock %}

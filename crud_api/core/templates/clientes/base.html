@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Meu Sistema{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; padding: 0;
+        }
+        header, footer {
+            background-color: #0077cc;
+            color: white;
+            padding: 10px 20px;
+        }
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0; width: 100%;
+        }
+        @media (max-width: 600px) {
+            header, footer { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meu Sistema</h1>
+        <nav>
+            <a href="{% url 'pagina_inicial' %}">Início</a>
+            {% if request.session.cliente_id %}
+                <a href="{% url 'painel_cliente' %}">Painel</a>
+                <a href="{% url 'logout_cliente' %}">Sair</a>
+            {% else %}
+                <a href="{% url 'login_cliente' %}">Login</a>
+                <a href="{% url 'registro_cliente' %}">Cadastro</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        &copy; 2025 - Meu Sistema. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

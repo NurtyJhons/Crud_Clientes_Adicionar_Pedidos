@@ -1,0 +1,14 @@
+{% extends 'clientes/base.html' %}
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+<h2>Registro</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Registrar</button>
+</form>
+<div class="link">
+    <p>Já tem conta? <a href="{% url 'login_cliente' %}">Login</a></p>
+</div>
+{% endblock %}

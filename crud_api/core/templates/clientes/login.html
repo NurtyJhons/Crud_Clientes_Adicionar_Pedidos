@@ -1,0 +1,13 @@
+{% extends 'clientes/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h2>Login de Cliente</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Entrar</button>
+</form>
+<a href="{% url 'registro_cliente' %}">Não tem conta? Registre-se</a>
+<a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
+{% endblock %}

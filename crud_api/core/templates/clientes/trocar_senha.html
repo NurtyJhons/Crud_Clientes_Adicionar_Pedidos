@@ -1,0 +1,12 @@
+{% extends 'clientes/base.html' %}
+{% block title %}Trocar Senha{% endblock %}
+
+{% block content %}
+<h2>Trocar Senha</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Atualizar Senha</button>
+</form>
+<a href="{% url 'painel_cliente' %}">Voltar ao Painel</a>
+{% endblock %}

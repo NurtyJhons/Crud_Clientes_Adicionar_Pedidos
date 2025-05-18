@@ -1,0 +1,11 @@
+{% extends 'clientes/base.html' %}
+{% block title %}Excluir Conta{% endblock %}
+
+{% block content %}
+<h2>Tem certeza que deseja excluir sua conta?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn logout">Sim, excluir</button>
+    <a class="btn" href="{% url 'painel_cliente' %}">Cancelar</a>
+</form>
+{% endblock %}
